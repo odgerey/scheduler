@@ -1,6 +1,9 @@
 import React from "react";
 
-import { render, cleanup } from "@testing-library/react";
+import "@testing-library/jest-dom"
+
+import {render, fireEvent, cleanup, screen} from '@testing-library/react'
+
 
 import Application from "components/Application";
 
