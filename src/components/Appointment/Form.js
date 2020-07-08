@@ -10,6 +10,12 @@ function reset() {
   setName("")
   setInterviewer(null)
 }
+function cancel() {
+  props.onCancel()
+  reset();
+}
+
+
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -22,6 +28,7 @@ function reset() {
         placeholder="Enter Student Name"
         value={name}
         onChange={event => setName(event.target.value)}
+        
       />
 
     </form>
@@ -29,7 +36,7 @@ function reset() {
   </section>
   <section className="appointment__card-right">
     <section className="appointment__actions">
-      <Button danger>Cancel</Button>
+      <Button danger onClick={cancel}>Cancel</Button>
       <Button confirm>Save</Button>
     </section> 
   </section>
