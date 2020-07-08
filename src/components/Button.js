@@ -1,6 +1,5 @@
 
 import "components/Button.scss";
-import { action } from "@storybook/addon-actions";
 
 import React  from 'react';
 import classNames from 'classnames/bind';
