@@ -31,6 +31,18 @@ const appointments = [
         avatar: "https://i.imgur.com/LpaY82x.png",
       }
     }
+  },
+  {
+    id: 3, 
+    time: "2pm",
+    interview: {
+      student: "Mila Kunis",
+      interviewer: {
+        id: 1,
+        name: "Sylvia Palmer",
+        avatar:"https://i.imgur.com/LpaY82x.png",
+      }
+    }
   }
 ];
 
@@ -54,18 +66,15 @@ const appointments = [
 
 
 export default function Application(props) {
-  const [day, setDay] = useState({
-    day: "Monday",
-    days:[],
-  });
+  const [day, setDay] = useState("Monday");
+  const [days, setDays] = useState([])
 
   useEffect(() => {
-    if (day) {
       axios
       .get("/api/days")
-      .then(response => setDay(response))
-    }
-  })
+      .then(response => setDays(response.data))
+    
+  },[])
 
 
 
