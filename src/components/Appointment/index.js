@@ -1,5 +1,5 @@
 // import Appointment from "components/Appointment/index";
-import React from "react";
+import React,  from "react";
 import "components/Appointment/styles.scss";
 
 import header from "./header";

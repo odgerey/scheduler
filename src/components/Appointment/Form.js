@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InterviewerList from "../InterviewerList";
+import InterviewerListItem from "../InterviewerListItem";
 import Button from "../Button";
 
 export default function Form (props) {
@@ -14,7 +15,9 @@ function cancel() {
   props.onCancel()
   reset();
 }
-
+function save() {
+  props.onSave(name, interviewer)
+}
 
 
   return (
@@ -30,14 +33,19 @@ function cancel() {
         onChange={event => setName(event.target.value)}
         
       />
-
     </form>
-    {/* <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} /> */}
+
+    {/* <InterviewerList 
+    interviewers={props.interviewers} 
+    value={interviewer} 
+    onChange={setInterviewer} 
+    /> */}
+    <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
   </section>
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm>Save</Button>
+      <Button confirm onClick={save}>Save</Button>
     </section> 
   </section>
 </main>
