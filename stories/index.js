@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 
@@ -18,7 +18,7 @@ import InterviewerListItem from "components/InterviewerListItem";
 
 import Appointment from "components/Appointment/index";
 
-import Header from "components/Appointment/index";
+import Header from "components/Appointment/header";
 
 import Empty from "components/Appointment/Empty";
 
@@ -155,6 +155,22 @@ storiesOf("Appointment", module)
   })
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="12pm" />
+      <Appointment id="last" time="1pm" />
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="12pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment id="last" time="1pm" />
+    </Fragment>
+  ))
   .add("Header", () => <Header time="12pm" />)
   .add ("Empty", () => <Empty onAdd={action("onAdd")}/>)
   .add ("Show", () =>
