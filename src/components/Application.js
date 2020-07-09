@@ -8,29 +8,77 @@ import InterviewerList from "components/InterviewerList";
 
 import InterviewerListItem from "components/InterviewerListItem";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const days = [
+import Appointment from "components/Appointment";
+
+import axios from "axios";
+
+
+const appointments = [
   {
     id: 1,
-    name: "Monday",
-    spots: 2,
+    time: "12pm",
   },
   {
     id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
+    time: "1pm",
+    interview: {
+      student: "Lydia Miller-Jones",
+      interviewer: {
+        id: 1,
+        name: "Sylvia Palmer",
+        avatar: "https://i.imgur.com/LpaY82x.png",
+      }
+    }
+  }
 ];
+
+// const days = [
+//   {
+//     id: 1,
+//     name: "Monday",
+//     spots: 2,
+//   },
+//   {
+//     id: 2,
+//     name: "Tuesday",
+//     spots: 5,
+//   },
+//   {
+//     id: 3,
+//     name: "Wednesday",
+//     spots: 0,
+//   },
+// ];
 
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
+  const [day, setDay] = useState({
+    day: "Monday",
+    days:[],
+  });
+
+  useEffect(() => {
+    if (day) {
+      axios
+      .get("/api/days")
+      .then(response => setDay(response))
+    }
+  })
+
+
+
+  const schedule = appointments.map(appointment => {
+    return (
+      <Appointment key={appointment.id} {...appointment} />
+          // <Appointment 
+          // id={props.id}
+          // time={props.time}
+          // interview={props.interview}
+          // />
+    )})
+
 
   return (
     <main className="layout">
@@ -55,7 +103,8 @@ export default function Application(props) {
 />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+      {schedule}
+      <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
