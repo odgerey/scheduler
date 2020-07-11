@@ -7,51 +7,34 @@ import Header from "components/Appointment/Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "components/Appointment/Form";
-import Status from "components/Appointment/Status";
-import Confirm from "components/Appointment/Confirm";
+// import Status from "components/Appointment/Status";
+// import Confirm from "components/Appointment/Confirm";
 
-const appointments = [
-  {
-    id: 1,
-    time: "12pm",
-  },
-  {
-    id: 2,
-    time: "1pm",
-    interview: {
-      student: "Lydia Miller-Jones",
-      interviewer: {
-        id: 1,
-        name: "Sylvia Palmer",
-        avatar: "https://i.imgur.com/LpaY82x.png",
-      }
-    }
-  },
-  {
-    id:3,
-    time:"12pm",
-    interview: {
-      student:"Janette Bertrand",
-      interviewer: {
-        id:1,
-        name:"Sylvia Palmer",
-        avatar:"https://i.imgur.com/LpaY82x.png",
-      }
-    }
-  }
-];
 
 export default function Appointment (props) {
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+
+
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
+
+
+   
   return (
   <article className="appointment">
 
-  <Header className="appointment__time">
-  <h4 className="text--semi-bold">{props.time}</h4>
-  <hr className="appointment__separator" />
-  </Header>
-  <Show 
-  student={props.interview.student} 
-  interviewer={props.interview.interviewer.name}/>
+  <Header time={props.time}/>
+  {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+  {mode === SHOW && (
+  <Show
+    student={props.interview.student}
+    interviewer={props.interview.interviewer}
+    
+  />
+)}  
+  {mode === CREATE} && <Form/>
   </article>
 );
 }

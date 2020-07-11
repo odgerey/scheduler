@@ -43,7 +43,8 @@
     "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.3.0",
     "babel-loader": "^8.1.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "react-test-renderer": "^16.13.1"
   },
   "jest": {
     "watchPathIgnorePatterns": [

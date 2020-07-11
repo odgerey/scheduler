@@ -15,11 +15,19 @@ export function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
-  const newObj = {
-    "student" : interview.student,
+  const newObject = {
+    "student" : state.interview.student,
     "interviewer": state.interviewers[interview.interviewer]
   }
-  return interview ? newObj : null
+  return interview ?  newObject : null
+}
+
+
+export function getInterviewersForDay(state, day) {
+  const filteredDay = state.days.find(({name}) => name === day)
+  const interviewers = filteredDay ? filteredDay.interviewers.map(appointmentId => state.interviewers[appointmentId]) : []
+
+  return interviewers
 }
 
   
