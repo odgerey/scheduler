@@ -1,5 +1,4 @@
 import { getAppointmentsForDay, getInterview } from "helpers/selectors";
-import { renderHook, act } from "@testing-library/react-hooks";
 
 
 
@@ -94,10 +93,3 @@ test("getInterview returns null if no interview is booked", () => {
   expect(result).toBeNull();
 });
 
-const FIRST = "FIRST";
-
-test("useVisualMode should initialize with default value", () => {
-  const { result } = renderHook(() => useVisualMode(FIRST));
-
-  expect(result.current.mode).toBe(FIRST);
-});

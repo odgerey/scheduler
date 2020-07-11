@@ -16,7 +16,7 @@ export function getAppointmentsForDay(state, day) {
 
 export function getInterview(state, interview) {
   const newObj = {
-    "student": interview.student,
+    "student" : interview.student,
     "interviewer": state.interviewers[interview.interviewer]
   }
   return interview ? newObj : null
