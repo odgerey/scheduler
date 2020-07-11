@@ -10,7 +10,8 @@
     "react": "^16.13.1",
     "react-axios": "^2.0.3",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve"
   },
   "scripts": {
     "start": "react-scripts start",
