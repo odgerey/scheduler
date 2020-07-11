@@ -2,9 +2,13 @@
 import React from "react";
 import "components/Appointment/styles.scss";
 
-import Header from "./Header";
+import useVisualMode from "hooks/useVisualMode";
+import Header from "components/Appointment/Header";
 import Show from "./Show";
 import Empty from "./Empty";
+import Form from "components/Appointment/Form";
+import Status from "components/Appointment/Status";
+import Confirm from "components/Appointment/Confirm";
 
 const appointments = [
   {
@@ -41,11 +45,11 @@ export default function Appointment (props) {
   return (
   <article className="appointment">
 
-<header className="appointment__time">
+<Header className="appointment__time">
   <h4 className="text--semi-bold">{props.time}</h4>
   <hr className="appointment__separator" />
-</header>
-  {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer}/> : <Empty />}
+</Header>
+   <Show student={props.interview.student} interviewer={props.interview.interviewer}/> : <Empty />
   </article>
 );
 }
