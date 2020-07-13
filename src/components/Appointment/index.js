@@ -2,8 +2,7 @@
 import React from "react";
 import "components/Appointment/styles.scss";
 
-import useVisualMode from "hooks/useVisualMode"
-import Header from "components/Appointment/Header";
+import Header from "./header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "components/Appointment/Form";
@@ -25,20 +24,8 @@ export default function Appointment (props) {
   return (
   <article className="appointment">
 
-  <Header time={props.time}/>
-  {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-  {mode === SHOW && (
-  <Show
-    student={props.interview.student}
-    interviewer={props.interview.interviewer}
-    
-  />
-)}  
-  {mode === CREATE} && <Form
-    interviewers={props.interviewers}
-    onSave={props.onSave}
-    onCancel={back}
-    />
+<Header time={props.time}/>
+  {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer}/> : <Empty />}
   </article>
 );
 }
