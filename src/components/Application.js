@@ -46,7 +46,7 @@ export default function Application(props) {
 
 
   useEffect(() => {
-      
+
       Promise.all([
         axios.get("/api/days"),
         axios.get("/api/appointments"),
