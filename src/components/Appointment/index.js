@@ -34,7 +34,40 @@ export default function Appointment (props) {
       student: name,
       interviewer
     };
+    console.log("Interview =>", interview)
+    transition(SAVING);
   }
+
+  function onAdd() {
+    transition(CREATE)
+  }
+
+  function onCancel() {
+    back()
+  }
+
+
+  function onComplete() {
+    transition(SAVING)
+  }
+
+  function onEdit() {
+    transition(EDIT)
+  }
+
+  function onComplete() {
+    transition(EMPTY)
+  }
+
+  function onDelete() {
+    transition(CONFIRM)
+  }
+
+  function onConfirm() {
+    transition(DELETING)
+  }
+
+
    
   return (
     <> 
@@ -42,20 +75,23 @@ export default function Appointment (props) {
       <article className="appointment">
         {mode === EMPTY && (
           <Empty 
-            onAdd={() => transition(CREATE)} 
+            onAdd={onAdd} 
           />
         )}
         {mode === SHOW && (
           <Show
             student={props.interview.student}
             interviewer={props.interview.interviewer.name}
+            onDelete={onDelete}
+            onEdit={onEdit}
           />
         )}  
         {mode === CREATE && (
           <Form
             interviewers={props.interviewers}
-            onSave={props.onSave}
-            onCancel={back}
+            onSave={save}
+            onCancel={onCancel}
+            
           />
         )}
       </article>

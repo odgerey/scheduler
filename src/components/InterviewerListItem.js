@@ -3,9 +3,9 @@ import "components/InterviewerListItem.scss";
 import classNames from 'classnames/bind';
 
 export default function InterviewerListItem(props) {
-      const interviewerClass = classNames("interviewers", {
-        "interviewers__item--selected" : props.selected
-      })
+  const interviewerClass = classNames("interviewers", {
+    "interviewers__item--selected" : props.selected
+  })
     
   return (
     <li className={interviewerClass} onClick={props.setInterviewer}>
@@ -13,8 +13,8 @@ export default function InterviewerListItem(props) {
         className="interviewers__item-image"
         src={props.avatar}
         alt={props.name}
-    />
-    {props.selected && props.name}
+      />
+      {props.selected && props.name}
     </li>
   )
 }
