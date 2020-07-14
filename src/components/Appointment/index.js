@@ -44,7 +44,9 @@ export default function Appointment (props) {
       interviewer
     };
     transition(SAVING);
-    props.bookInterview(props.id, interview) ? transition(SHOW) : transition(ERROR_SAVE)
+    props.bookInterview(props.id, interview) 
+    transition(SHOW)
+    console.log(props.id)
   }
 
 
@@ -76,7 +78,7 @@ export default function Appointment (props) {
         {mode === SHOW && (
           <Show
             student={props.interview.student}
-            interviewer={props.interview.interviewer.name}
+            interviewer={props.interview.interviewer}
             onDelete={onDelete}
             onEdit={onEdit}
           />
