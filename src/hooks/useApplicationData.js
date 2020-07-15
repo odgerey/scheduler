@@ -11,6 +11,16 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  function currentSpots() {
+  axios.get("/api/days")
+  .then((response) => {
+      setState(prevState => {
+      return ({...prevState, days: response.data})}) 
+  })
+  }
+
+  // <-----------REMOVE APPOINTMENT--------->
+
   function cancelInterview (id) {
     const appointment = {
       ...state.appointments[id],
@@ -26,15 +36,11 @@ export default function useApplicationData() {
         setState({
           ...state, appointments
         });
+        currentSpots()
       });
   }
 
-
-  
-//   // function deleteInterview() {
-//   //   props.cancelInterview(props.id, transition(DELETING))
-//   //     .then(() => {transition(EMPTY)})
-//   // }
+//<----------ADD AN APPOINTMENT------------>
 
   function bookInterview(id, interview) {
     const appointment = {
@@ -54,9 +60,10 @@ export default function useApplicationData() {
         setState({
           ...state, appointments
         });
+        currentSpots()
       });
+    }
 
-  }
 
   useEffect(() => {
 
