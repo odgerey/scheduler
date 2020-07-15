@@ -43,11 +43,28 @@ export default function Appointment (props) {
       student: name,
       interviewer
     };
-    transition(SAVING);
-    props.bookInterview(props.id, interview) 
-    transition(SHOW)
-    console.log(props.id)
+
+    transition(SAVING, true);
+    props
+      .bookInterview(props.id, interview)
+      .then(() => transition(SHOW))
+      .catch(error => {
+        console.log("API call failed")
+        transition(ERROR_SAVE)});
   }
+  function onConfirm() {
+    transition(DELETING,true);
+    props
+      .cancelInterview(props.id) 
+      .then(() => transition(EMPTY))
+      .catch(error => {transition(ERROR_DELETE)})
+  }
+    // function destroy(event) {
+    // transition(DELETING, true);
+    // props.cancelInterview(props.id) ? transition(EMPTY) : transition(ERROR_DELETE, true)
+    // }
+    // destroy()
+  
 
 
   function onEdit() {
@@ -60,10 +77,10 @@ export default function Appointment (props) {
     transition(CONFIRM);
   }
 
-  function onConfirm() {
-    transition(DELETING);
-    props.cancelInterview(props.id) ? transition(EMPTY) : transition(ERROR_DELETE)
-  }
+  // function onConfirm() {
+  //   transition(DELETING);
+  //   props.cancelInterview(props.id) ? transition(EMPTY) : transition(ERROR_DELETE)
+  // }
 
    
   return (
