@@ -20,9 +20,10 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
   
     const appointments = getAllByTestId(container, "appointment");
-    const appointment = getAllByTestId(container, "appointment")[0];
+    const appointment = appointments[0];
+    
     fireEvent.click(getByAltText(appointment, "Add"));
-
+    
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" }
     });
