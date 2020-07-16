@@ -1,5 +1,8 @@
 # Interview Scheduler
-This project introduces REACT as well as the Jest Test Framework.It is a single page app and was developed incrementally using Storybook as a tool. Full testing has been completed throughout the project phases, first with static testing (ESlint), unit testing (Building hooks), integration testing, and end-to-end testing with Cypress. Core functionalities work. There are no known bugs at this time.
+This project introduces REACT as well as the Jest Test Framework.It is a single page app and was developed incrementally using Storybook as a tool. Full testing has been completed throughout the project phases, first with static testing (ESlint), unit testing (Building hooks), integration testing, and end-to-end testing with Cypress. Core functionalities work. 
+
+## Known issues and project debugging
+There were significant version clashes throughout the project, including reaching maximum browsing memory and javascript heap memory which made the whole project crash on Day 5 while working on hooks. A previous commit was used to roll back on by creating a separate tree (temp) using my_repo. The amount of commits are inaccurate as at least 28 commits were done prior to the project crash. The project was debugged and completed on the temp branch. Git rebase was used to merge the files to master safely. The my_repo folder and temp branch were kept out of safekeeping in the eventuality that any bugs remain unresolved and irreparable. 
 
 ## Final Product
 
