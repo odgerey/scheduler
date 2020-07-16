@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-// import "@testing-library/jest-dom"
 
 import {
   render, 
@@ -17,7 +16,7 @@ import {
   queryByAltText,
   findByText,
   findBy,
-  prettyDOM 
+
 } from '@testing-library/react'
 
 import Application from "components/Application";

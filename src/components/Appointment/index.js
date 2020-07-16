@@ -1,4 +1,4 @@
-// import Appointment from "components/Appointment/index";
+
 import React from "react";
 import "components/Appointment/styles.scss";
 
@@ -59,13 +59,7 @@ export default function Appointment (props) {
       .then(() => transition(EMPTY))
       .catch(error => {transition(ERROR_DELETE)})
   }
-    // function destroy(event) {
-    // transition(DELETING, true);
-    // props.cancelInterview(props.id) ? transition(EMPTY) : transition(ERROR_DELETE, true)
-    // }
-    // destroy()
-  
-
+ 
 
   function onEdit() {
     console.log("Editing =>", props.interview.interviewer)
@@ -76,11 +70,6 @@ export default function Appointment (props) {
   function onDelete() {
     transition(CONFIRM);
   }
-
-  // function onConfirm() {
-  //   transition(DELETING);
-  //   props.cancelInterview(props.id) ? transition(EMPTY) : transition(ERROR_DELETE)
-  // }
 
    
   return (
