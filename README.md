@@ -6,10 +6,9 @@ There were significant version clashes throughout the project, including reachin
 
 ## Final Product
 
-!["Full edit feature"](https://github.com/odgerey/tinyurl/blob/master/docs/urls_editFeature.png)
-!["Main user's account page with edit and delete features"](https://github.com/odgerey/tinyurl/blob/master/docs/urls_index.png)
-!["New user welcome page"](https://github.com/odgerey/tinyurl/blob/master/docs/urls_register.png)
-!["Dynamic errors page for customer experience"](https://github.com/odgerey/tinyurl/blob/master/docs/urls_errors.png)
+!["Main page upon load"](https://github.com/odgerey/scheduler/blob/temp/Docs/Screen%20Shot%202020-07-16%20at%201.44.48%20PM.png)
+!["When appointment is booked with student name"](https://github.com/odgerey/scheduler/blob/temp/Docs/Screen%20Shot%202020-07-16%20at%201.45.00%20PM.png)
+!["Confirm message"](https://github.com/odgerey/scheduler/blob/temp/Docs/Screen%20Shot%202020-07-16%20at%201.45.11%20PM.png)
 
 ## Setup
 
