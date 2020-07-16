@@ -110,7 +110,7 @@ describe("Application", () => {
       });
     fireEvent.click(getByText(appointment, "Save"));
     await waitForElement(() =>
-      getByText(appointment, "Could not save appointment")
+      getByText(appointment, "Error, appointment was not saved")
     );
   });
   
