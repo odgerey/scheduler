@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
-
-
-=======
 import { getAppointmentsForDay, getInterviewersForDay } from "helpers/selectors";
->>>>>>> df2799d8... Appointments can be saved
 
 const state = {
   days: [

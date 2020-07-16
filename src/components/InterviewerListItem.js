@@ -18,14 +18,3 @@ export default function InterviewerListItem(props) {
     </li>
   )
 }
-
-
-    // const interviewers = props.interviewers.map(interviewer => {
-    //   return (< InterviewerListItem
-    //     id={interviewer.id} 
-    //     name={interviewer.name} 
-    //     avatar={interviewer.url}
-    //     selected={interviewer.name === props.interviewer} 
-    //     setInterviewer={props.setInterviewer} 
-    //     />)})
-    //     return interviewers;
