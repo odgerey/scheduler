@@ -10,16 +10,18 @@
     "react": "^16.13.1",
     "react-axios": "^2.0.3",
     "react-dom": "^16.13.1",
+    "react-hooks-testing-library": "^0.6.0",
     "react-scripts": "3.4.1",
-    "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve"
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-fourteen",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --ci",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "cypress": "cypress open -P ."
   },
   "browserslist": {
     "production": [
@@ -44,8 +46,10 @@
     "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.3.0",
     "babel-loader": "^8.1.0",
+    "cypress": "^4.10.0",
     "node-sass": "^4.14.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "prop-types": "^15.7.2"
   },
   "jest": {
     "watchPathIgnorePatterns": [
